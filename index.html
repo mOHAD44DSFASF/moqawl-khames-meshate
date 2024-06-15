@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقاول عام خميس مشيط ابها</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #F8F9FA;
+            color: #373A40;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        .navbar {
+            background-color: #373A40;
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            color: #DC5F00;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            margin-left: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #DC5F00;
+        }
+
+        .navbar-nav .nav-item a i {
+            margin-left: 5px;
+        }
+
+        .hero-section {
+            background: url('https://aqararabi.com/wp-content/uploads/2022/01/%D9%83%D9%8A%D9%81%D9%8A%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A1-%D8%B9%D9%82%D8%A7%D8%B1-%D9%81%D9%8A-%D9%85%D8%B5%D8%B1-%D9%84%D9%84%D8%A3%D8%AC%D8%A7%D9%86%D8%A8-scaled.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #eee;
+            font-weight: 300;
+        }
+
+        .hero-section a {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-section a:hover {
+            background-color: #fff;
+            color: #DC5F00;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            color: #373A40;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #DC5F00;
+            z-index: 0;
+        }
+
+        .about-section, .services-section, .testimonials-section, .contact-form-section, .map-section, .faq-section, .projects-section, .team-section {
+            padding: 50px 0;
+            background-color: #FFFFFF;
+        }
+
+        .service-item, .testimonial-item, .faq-item, .project-item, .team-member {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .service-item i {
+            color: #DC5F00;
+            margin-bottom: 20px;
+            font-size: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #373A40;
+        }
+
+        .service-item p {
+            color: #686D76;
+        }
+
+        .service-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .testimonial-item blockquote {
+            font-size: 1rem;
+            font-style: italic;
+            color: #686D76;
+            border-right: 5px solid #DC5F00;
+            padding-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .testimonial-item footer {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #373A40;
+        }
+
+        .testimonial-item:hover blockquote {
+            color: #DC5F00;
+        }
+
+        .contact-form-section form .form-group {
+            margin-bottom: 25px;
+        }
+
+        .contact-form-section form .form-control {
+            border-radius: 0;
+            box-shadow: none;
+            border-color: #DC5F00;
+        }
+
+        .contact-form-section form .btn-primary {
+            background-color: #DC5F00;
+            border-color: #DC5F00;
+            padding: 10px 20px;
+            border-radius: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form-section form .btn-primary:hover {
+            background-color: #373A40;
+            border-color: #373A40;
+        }
+
+        .map-section #map {
+            width: 100%;
+            height: 400px;
+        }
+
+        .faq-section .faq-item h4 {
+            cursor: pointer;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #F8F9FA;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .faq-section .faq-item h4:hover {
+            background-color: #EEE;
+        }
+
+        .faq-section .faq-item p {
+            display: none;
+            padding: 10px;
+            background-color: #F8F9FA;
+            border-radius: 5px;
+            transition: display 0.3s ease;
+        }
+
+        .faq-section .faq-item.active h4 {
+            background-color: #DC5F00;
+            color: white;
+        }
+
+        .faq-section .faq-item.active p {
+            display: block;
+        }
+
+        .projects-section .project-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .projects-section .project-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .team-section .team-member img {
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-section .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .team-section .team-member h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #373A40;
+        }
+
+        .team-section .team-member p {
+            font-size: 1rem;
+            color: #686D76;
+        }
+
+        footer {
+            background: #373A40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .whatsapp-icon {
+            font-size: 1.5rem;
+            color: #25D366;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .whatsapp-icon:hover {
+            color: #128C7E;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 0.9rem;
+                margin-left: 10px;
+            }
+        }
+
+        h4 {
+            color: #373A40;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">مقاول عام خميس مشيط</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">نبذة عن الشركة</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">خدماتنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">مشاريعنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">فريق العمل</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonials">آراء عملائنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://wa.me/+9660551335167" target="_blank"><i class="fab fa-whatsapp whatsapp-icon"></i>واتساب</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero-section">
+    <div class="container">
+        <h1 data-aos="fade-up">مرحبا بكم في شركة المقاولات والتشطيبات العامة</h1>
+        <p data-aos="fade-up" data-aos-delay="100">نوفر لكم أفضل الخدمات بأعلى جودة</p>
+        <a href="https://wa.me/+9660551335167" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">تواصل عبر واتساب</a>
+    </div>
+</header>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">نبذة عن الشركة</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-left">
+                <p>شركة مقاولات وتشطيبات عامة تقدم خدمات مميزة لتلبية احتياجات العملاء. نحن نسعى لتقديم أفضل الخدمات في مجال التشطيبات والمقاولات العامة، مع الالتزام بأعلى معايير الجودة والاحترافية.</p>
+                <p>نقدم خدمات بناء وتشييد، وتشطيبات داخلية، وتصميم معماري مبتكر. نحن نؤمن بأهمية الابتكار والتفرد في جميع مشاريعنا، ونسعى لتحقيق رؤى عملائنا بأعلى مستوى من الجودة والدقة.</p>
+                <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+            </div>
+            <div class="col-md-6" data-aos="fade-right">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjh8X3hrIXIbx0-b9T2DmTRJBnXgvhK-Kk7g&s" alt="About Us" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">خدماتنا</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-hammer"></i>
+                <h3>البناء والتشييد</h3>
+                <p>نقدم خدمات بناء وتشييد عالية الجودة. نلتزم بأعلى معايير السلامة والجودة في جميع مشاريعنا.</p>
+                
+            </div>
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-paint-roller"></i>
+                <h3>التشطيبات الداخلية</h3>
+                <p>تشطيبات داخلية مميزة بأعلى مستوى. نستخدم أفضل المواد لتحقيق تشطيبات داخلية مميزة.</p>
+                
+            </div>
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-drafting-compass"></i>
+                <h3>التصميم المعماري</h3>
+                <p>تصاميم معمارية مبتكرة وملهمة. نعمل على تصميم مساحات مبدعة تناسب احتياجات العملاء.</p>
+
+            </div>
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-stream"></i>
+                <h3>إدارة المشاريع</h3>
+                <p>نقوم بإدارة المشاريع بكفاءة واحترافية لضمان تحقيق الأهداف بفعالية وفي الوقت المحدد.</p>
+
+            </div>
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-toolbox"></i>
+                <h3>الصيانة والإصلاحات</h3>
+                <p>نقدم خدمات الصيانة والإصلاحات لضمان استدامة المشروعات والحفاظ على جودتها.</p>
+                
+            </div>
+            <div class="col-md-4 service-item" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-lightbulb"></i>
+                <h3>الابتكار والتطوير</h3>
+                <p>نسعى دائمًا للابتكار والتطوير لتحقيق أعلى معايير الجودة وتلبية توقعات العملاء.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="projects-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">مشاريعنا</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 project-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_mnv8nM0AsYbJ-GperRSNltgpbcG-KDGvPQ&s" alt="Project 1" class="img-fluid">
+                <h3>مشروع بناء فاخر</h3>
+                <p>تم تنفيذ مشروع بناء سكني بأعلى معايير الجودة والدقة.</p>
+                <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+            </div>
+            <div class="col-md-4 project-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://pic.le-cdn.com/thumbs/520x390/08/1/properties/Property-b6da893cead4116404235626b70914c8-129040256.jpg" alt="Project 2" class="img-fluid">
+                <h3>مشروع بيت بتصميم فاخر</h3>
+                <p>تصميم وتنفيذ مشروع تجاري مبتكر يلبي احتياجات العملاء.</p>
+                <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+            </div>
+            <div class="col-md-4 project-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3dC3MHT11QmL6vDRMUOMqX7Y3LbnHRwSS9w&s" alt="Project 3"  width="60px" height="60px">
+                <h3>بيت إحترافي</h3>
+                <p>تشطيبات داخلية متميزة لتحقيق أقصى درجات الراحة والجمال.</p>
+                <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">آراء عملائنا</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4 testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <blockquote>
+                    <p>خدمة ممتازة ونتائج رائعة! شكراً لفريق العمل الرائع على جهودهم المستمرة.</p>
+                    <h4>عميل سعيد</h4>
+                </blockquote>
+            </div>
+            <div class="col-md-4 testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                <blockquote>
+                    <p>أفضل تجربة مع شركة تشطيبات! جودة العمل كانت فوق المتوقع والخدمة كانت احترافية جداً.</p>
+                    <h4>عميل راضٍ</h4>
+                </blockquote>
+            </div>
+            <div class="col-md-4 testimonial-item" data-aos="fade-up" data-aos-delay="300">
+                <blockquote>
+                    <p>فريق عمل محترف وجودة عالية. أوصي بشدة بهذه الشركة لأي شخص يبحث عن خدمات تشطيبات متميزة.</p>
+                    <h4>عميل دائم</h4>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-form-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">تواصل معنا</h2>
+        </div>
+        <form action="send_message.php" method="post">
+            <div class="form-group" data-aos="fade-up" data-aos-delay="100">
+                <label for="name">الاسم</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                <label for="message">الرسالة</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">إرسال</button>
+        </form>
+        <p class="mt-4" data-aos="fade-up" data-aos-delay="500"><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+    </div>
+</section>
+
+<section id="map" class="map-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">موقعنا</h2>
+        </div>
+        <iframe  id="map" style="height: 400px;" data-aos="fade-up" data-aos-delay="100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.854793573128!2d42.7265447!3d18.3082475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15fb5be5c5c2802f%3A0xb4b1ca761d1ca0e7!2z2YXZgtin2YjZhCDYrtmF2YrYsyDZhdi02YrYtyDYp9io2YfYpw!5e0!3m2!1sar!2seg!4v1718303837719!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+<section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-aos="fade-up">الأسئلة الشائعة</h2>
+        </div>
+        <div class="faq-item" data-aos="fade-up">
+            <h4>ما هي خدماتكم الرئيسية؟</h4>
+            <p>نقدم مجموعة واسعة من خدمات المقاولات والتشطيبات العامة.</p>
+            <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <h4>كيف يمكنني التواصل معكم؟</h4>
+            <p>يمكنك التواصل معنا عبر نموذج الاتصال أو البريد الإلكتروني.</p>
+            <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <h4>ما هي أسعار خدماتكم؟</h4>
+            <p>تختلف الأسعار حسب نوع الخدمة وحجم المشروع. يرجى التواصل معنا للحصول على عرض سعر.</p>
+            <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <h4>هل تقدمون خدمات استشارية؟</h4>
+            <p>نعم، نقدم خدمات استشارية لمساعدتك في اتخاذ القرارات الأفضل لمشروعك.</p>
+            <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <h4>ما هي المناطق التي تغطونها؟</h4>
+            <p>نحن نقدم خدماتنا في جميع أنحاء المملكة العربية السعودية.</p>
+            <p><a href="https://wa.me/+9660551335167" class="btn btn-success"><i class="fab fa-whatsapp whatsapp-icon"></i>تواصل عبر واتساب</a></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2024 شركة المقاولات والتشطيبات العامة. جميع الحقوق محفوظة. <a href="https://wa.me/+9660551335167" class="whatsapp-icon" target="_blank"><i class="fab fa-whatsapp"></i></a></p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+    // Google Maps initialization
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+<script>
+    // FAQ toggle
+    $(document).ready(function(){
+        $('.faq-item h4').click(function(){
+            $(this).parent().toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>
